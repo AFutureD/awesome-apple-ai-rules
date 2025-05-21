@@ -8,16 +8,22 @@ description: Instructions For Agents, such as Cursor, Copilot, Codex.
 - This Project is using Cocopods as a dependency manager.
 
 # Dev Environment Instructions
-- Install 'swiftformat' as code formatter, link: https://github.com/nicklockwood/SwiftFormat
-  - install command: `brew install swiftformat`
-- Install mise decpendency if the exists
+- Install mise decpendency if mise the exists
   - Test mise existence using command `command -v mise`
   - Install decpendency using command `mise install`
-- Run `pod install` if 'Pods' not exists.
+  - List mise tool and check if some tool missed `mise ls -mc`
+  - List all installed tools using `mise ls -ic`
+- Set up 'swiftformat' as code formatter, link: https://github.com/nicklockwood/SwiftFormat
+  - Check if command exists
+  - install command: `mise use swiftformat`
+- Set up Cocoapods
+  - Make sure ruby installed by mise
+  - Install Cocoapods by Gem Bundle `bundle install`
+  - Run `pod install`
 
 # Build Instructions
 - run 'pod install' after each 'git pull' or 'git merge' command to resolve 'podfile.lock' issue
-- Using the scheme 'FaceYoga' under the `@./[YOUR WORKSPACE].xcworkspace`
+- Using the scheme '[YOUR APP NAME]' under the `@./[YOUR WORKSPACE].xcworkspace`
 - Use the following command to build the target
   `xcodebuild -sdk iphoneos -workspace ./{{WORKSPACE NAME}}.xcworkspace -scheme {{BUILD SCHEME}} -destination 'generic/platform=iOS Simulator' -quiet -allowProvisioningUpdates -configuration Debug build`
 
